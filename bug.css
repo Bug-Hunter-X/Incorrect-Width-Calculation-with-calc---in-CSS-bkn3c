@@ -1,0 +1,14 @@
+The CSS property `calc()` is used incorrectly, leading to unexpected results.  Specifically, the calculation `calc(100% - 50px)` within a `width` property causes the element to have a smaller width than intended when the parent element's width is constrained.
+
+```css
+.container {
+  width: 500px;
+}
+
+.element {
+  width: calc(100% - 50px);
+  background-color: lightblue;
+}
+```
+
+In this example, one might expect `.element` to have a width of 450px (500px - 50px). However, due to the way `calc()` interacts with percentage values and other units, the subtraction might not behave as expected in all scenarios, particularly in cases where the parent element doesn't have its width explicitly set or if the percentage calculation doesn't result in a whole number.
