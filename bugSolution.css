@@ -1,0 +1,20 @@
+Using a more explicit width definition avoids the ambiguity of `calc()` in certain scenarios.  If a consistent 450px width is required regardless of the parent's width, directly setting the width is preferable to relying on `calc()`.
+
+```css
+.container {
+  width: 500px;
+}
+
+.element {
+  width: 450px; /* Explicit width */
+  background-color: lightgreen;
+}
+```
+
+Alternatively, using viewport units (vw) can provide a more predictable result for relative calculations:
+```css
+.element {
+  width: calc(100vw - 50px);
+}
+```
+This might be better if you intended to take the viewport width into account.
